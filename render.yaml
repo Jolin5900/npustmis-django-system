@@ -3,7 +3,7 @@ services:
     name: npustmis-django-system
     env: python
     buildCommand: pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput
-    startCommand: gunicorn system.wsgi:application --bind 0.0.0.0:$PORT
+    startCommand: gunicorn system.wsgi:application --bind 0.0.0.0:$PORT --workers 2
     envVars:
       - key: SECRET_KEY
         generateValue: true
@@ -13,5 +13,7 @@ services:
         fromDatabase:
           name: mydb
           property: connectionString
+      - key: PYTHONPATH
+        value: /opt/render/project/src
 databases:
   - name: mydb
