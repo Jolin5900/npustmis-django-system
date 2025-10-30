@@ -3,7 +3,7 @@ services:
     name: npustmis-django-system
     env: python
     buildCommand: cd src && pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput
-    startCommand: cd src && PYTHONPATH=. gunicorn system.wsgi:application --bind 0.0.0.0:$PORT --workers 2
+    startCommand: bash -c "cd src && export PYTHONPATH=$(pwd) && gunicorn system.wsgi:application --bind 0.0.0.0:$PORT --workers 2"
     envVars:
       - key: SECRET_KEY
         generateValue: true
