@@ -1,0 +1,11 @@
+Django==5.2.3
+gunicorn
+psycopg2-binary
+dj-database-url
+whitenoise
+python-dotenv
+whisper
+openai
+ffmpeg-python
+torch==2.1.0
+pydub
