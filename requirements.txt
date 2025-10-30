@@ -7,5 +7,5 @@ python-dotenv
 whisper
 openai
 ffmpeg-python
-torch==2.1.0
+torch==2.5.0
 pydub
