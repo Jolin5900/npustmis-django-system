@@ -2,7 +2,12 @@ services:
   - type: web
     name: npustmis-django-system
     env: python
-    buildCommand: sudo apt-get update && sudo apt-get install -y ffmpeg && pip install -r requirements.txt && cd src && python manage.py migrate && python manage.py collectstatic --noinput
+    buildCommand: |
+      sudo apt-get update && sudo apt-get install -y ffmpeg
+      pip install -r requirements.txt
+      cd src
+      python manage.py migrate
+      python manage.py collectstatic --noinput
     startCommand: gunicorn system.wsgi:application --chdir src --bind 0.0.0.0:$PORT --workers 2
     envVars:
       - key: SECRET_KEY
