@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # === 安全設定 ===
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-your-secret-key')  # Render 會自動覆蓋
 DEBUG = False  # 上線必須 False
-ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME', 'https://npustmis-django-system.onrender.com/')]
+ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME', 'npustmis-django-system.onrender.com/')]
 #ALLOWED_HOSTS = ['*']  # Render 支援所有域名
 
 # === 應用程式 ===
